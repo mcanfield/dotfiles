@@ -5,7 +5,6 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " Plugin bundles
-Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'groenewege/vim-less'
 Bundle 'hail2u/vim-css3-syntax'
