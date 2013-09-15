@@ -16,6 +16,10 @@ Bundle 'hail2u/vim-css3-syntax'
 Bundle 'rking/ag.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-commentary'
 
 syntax enable
 colorscheme solarized
