@@ -66,14 +66,19 @@ nmap <leader>t :CtrlP<CR>
 nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR><CR>
 nmap <leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
 nmap <leader>= :call Preserve("normal gg=G")<CR>
-"nmap <leader>g :GitGutterToggle<CR>
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
+" plugin settings
+let g:ctrlp_match_window = 'order:ttb,max:20'
+"let g:NERDSpaceDelims=1
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
     " Use Ag over Grep
     set grepprg=ag\ --nogroup\ --nocolor
 
-    " Use ag in CtrlP for listing files.
+    " Use ag in CtrlP for listing files. Add an .agignore file to hide
+    " unwanted search results.
     let g:ctrlp_user_command = 'ag %s -l -f --nocolor --hidden -g ""'
 endif
 
@@ -96,3 +101,16 @@ endfunction
 
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd BufRead,BufNewFile *.md set filetype=markdown
+
+if filereadable(expand("~/.vimrc.local"))
+    " In your .vimrc.local, you might like:
+    "
+    " set autowrite
+    " set nocursorline
+    " set nowritebackup
+    " set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
+    "
+    " autocmd! bufwritepost .vimrc source ~/.vimrc
+    " noremap! jj <ESC>
+    source ~/.vimrc.local
+endif
