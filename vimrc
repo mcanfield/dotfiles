@@ -65,8 +65,6 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 nmap <leader>a :Ag
 nmap <leader>b :CtrlPBuffer<CR>
-"nmap <leader>d :NERDTreeToggle<CR>
-"nmap <leader>f :NERDTreeFind<CR>
 nmap <leader>t :CtrlP<CR>
 nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR><CR>
 nmap <leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
@@ -76,7 +74,6 @@ map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimr
 
 " plugin settings
 let g:ctrlp_match_window = 'order:ttb,max:20'
-"let g:NERDSpaceDelims=1
 "let g:gitgutter_enabled = 0
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
