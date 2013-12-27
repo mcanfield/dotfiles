@@ -103,8 +103,20 @@ function! Preserve(command)
     call cursor(l, c)
 endfunction
 
-autocmd FileType html setlocal shiftwidth=2 tabstop=2 expandtab
-autocmd BufRead,BufNewFile *.md set filetype=markdown
+function! Incr()
+    let a = line('.') - line("'<")
+    let c = virtcol("'<")
+    if a > 0
+        execute 'normal! '.c.'|'.a."\<C-a>"
+    endif
+    normal `<
+endfunction
+
+vnoremap <leader>n :call Incr()<CR>
+
+au FileType html setlocal shiftwidth=2 tabstop=2 expandtab
+au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile .bash_aliases set filetype=sh
 
 if filereadable(expand("~/.vimrc.local"))
     " In your .vimrc.local, you might like:
