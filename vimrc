@@ -20,6 +20,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-obsession'
 Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
