@@ -120,6 +120,7 @@ endfunction
 vnoremap <leader>n :call Incr()<CR>
 
 au FileType html setlocal shiftwidth=2 tabstop=2 expandtab
+au BufRead,BufNewFile *.jsp set filetype=html
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile .bash_aliases set filetype=sh
 
