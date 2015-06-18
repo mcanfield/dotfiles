@@ -22,6 +22,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-obsession'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'marijnh/tern_for_vim'
 
 call vundle#end()
 
@@ -78,8 +79,10 @@ nmap <leader>g :GitGutterToggle<CR>
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " plugin settings
-let g:ctrlp_match_window = 'order:ttb,max:20'
-"let g:gitgutter_enabled = 0
+let g:ctrlp_match_window='order:ttb,max:20'
+"let g:gitgutter_enabled=0
+let g:tern_map_keys=1
+let g:tern_show_argument_hint='on_hold'
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
