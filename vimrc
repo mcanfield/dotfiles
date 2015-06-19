@@ -23,6 +23,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-obsession'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'marijnh/tern_for_vim'
+Plugin 'jiangmiao/auto-pairs'
 
 call vundle#end()
 
