@@ -70,7 +70,7 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-nmap <leader>a :Ag
+nmap <leader>a :Ag<space>
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>t :CtrlP<CR>
 nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR><CR>
