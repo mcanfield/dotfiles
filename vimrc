@@ -77,6 +77,8 @@ nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR><CR>
 nmap <leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
 nmap <leader>= :call Preserve("normal gg=G")<CR>
 nmap <leader>g :GitGutterToggle<CR>
+nmap <leader>P :put!<CR>
+nmap <leader>p :put<CR>
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " plugin settings
