@@ -23,6 +23,16 @@ Plugin 'tpope/vim-obsession'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'jiangmiao/auto-pairs'
+"Plugin 'terryma/vim-multiple-cursors'
+"Plugin 'scrooloose/syntastic'
+"Plugin 'jelera/vim-javascript-syntax'
+"Plugin 'othree/javascript-libraries-syntax.vim'
+"Plugin 'Shougo/unite.vim'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'ervandew/supertab'
+"Plugin 'SirVer/ultisnips'
+"Plugin 'honza/vim-snippets'
+"Plugin 'mattn/emmet-vim'
 
 call vundle#end()
 
