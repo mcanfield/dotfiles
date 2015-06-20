@@ -5,8 +5,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle
-" required!
+" let Vundle manage Vundle - required!
 Plugin 'gmarik/vundle'
 
 " Plugin bundles
@@ -79,6 +78,7 @@ nmap <leader>= :call Preserve("normal gg=G")<CR>
 nmap <leader>g :GitGutterToggle<CR>
 nmap <leader>P :put!<CR>
 nmap <leader>p :put<CR>
+vnoremap <leader>n :call Incr()<CR>
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " plugin settings
@@ -86,6 +86,12 @@ let g:ctrlp_match_window='order:ttb,max:20'
 "let g:gitgutter_enabled=0
 let g:tern_map_keys=1
 let g:tern_show_argument_hint='on_hold'
+
+" autocommands
+au FileType html setlocal shiftwidth=2 tabstop=2 expandtab
+au BufRead,BufNewFile *.jsp set filetype=html
+au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile .bash_aliases set filetype=sh
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -122,13 +128,6 @@ function! Incr()
     endif
     normal `<
 endfunction
-
-vnoremap <leader>n :call Incr()<CR>
-
-au FileType html setlocal shiftwidth=2 tabstop=2 expandtab
-au BufRead,BufNewFile *.jsp set filetype=html
-au BufRead,BufNewFile *.md set filetype=markdown
-au BufRead,BufNewFile .bash_aliases set filetype=sh
 
 if filereadable(expand("~/.vimrc.local"))
     " In your .vimrc.local, you might like:
