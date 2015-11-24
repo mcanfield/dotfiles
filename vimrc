@@ -23,16 +23,23 @@ Plugin 'tpope/vim-obsession'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'jiangmiao/auto-pairs'
-"Plugin 'terryma/vim-multiple-cursors'
-"Plugin 'scrooloose/syntastic'
-"Plugin 'jelera/vim-javascript-syntax'
-"Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'henrik/vim-indexed-search'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/syntastic'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'othree/javascript-libraries-syntax.vim'
 "Plugin 'Shougo/unite.vim'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'ervandew/supertab'
-"Plugin 'SirVer/ultisnips'
-"Plugin 'honza/vim-snippets'
-"Plugin 'mattn/emmet-vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'MarcWeber/vim-addon-local-vimrc'
+Plugin 'burnettk/vim-angular'
+Plugin 'SirVer/ultisnips'
+Plugin 'matthewsimo/angular-vim-snippets'
+Plugin 'honza/vim-snippets'
+Plugin 'mcanfield/snippets'
+Plugin 'mattn/emmet-vim'
+Plugin 'einars/js-beautify'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'mtth/scratch.vim'
 
 call vundle#end()
 
@@ -62,12 +69,12 @@ set listchars=tab:▸\ ,trail:▫
 set number                            " show line numbers
 set ruler                             " show where you are
 set scrolloff=3                       " show context above/below cursorline
-set shiftwidth=4                      " normal mode indentation commands use 4 spaces
+set shiftwidth=2                      " normal mode indentation commands use 2 spaces
 set showcmd
 set smartcase                         " case-sensitive search if any caps
-set softtabstop=4                     " insert mode tab and backspace use 4 spaces
+set softtabstop=2                     " insert mode tab and backspace use 2 spaces
 set smartindent
-set tabstop=4                         " actual tabs occupy 4 characters
+set tabstop=2                         " actual tabs occupy 2 characters
 set wildignore=log/**,node_modules/**,target/**,tmp/**
 set wildmenu                          " show a navigable menu for tab completion
 set wildmode=longest,list,full
@@ -75,6 +82,8 @@ set wildmode=longest,list,full
 
 " Keybindings
 let mapleader = ','
+let maplocalleader = ' '
+inoremap jj <ESC>
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
@@ -88,14 +97,45 @@ nmap <leader>= :call Preserve("normal gg=G")<CR>
 nmap <leader>g :GitGutterToggle<CR>
 nmap <leader>P :put!<CR>
 nmap <leader>p :put<CR>
+noremap <silent> <F4> :let @+=expand("%")<CR>
+nnoremap <silent> <leader>l :nohlsearch<CR>:echo ''<CR>
 vnoremap <leader>n :call Incr()<CR>
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
-" plugin settings
+" Plugin Settings
+
 let g:ctrlp_match_window='order:ttb,max:20'
 "let g:gitgutter_enabled=0
+
+" Multiple cursors
+let g:multi_cursor_start_key='<leader>m'
+let g:multi_cursor_insert_maps={'j':1}
+
+" Tern.js
 let g:tern_map_keys=1
 let g:tern_show_argument_hint='on_hold'
+
+" vim-indexed-search
+let g:indexed_search_dont_move=1
+let g:indexed_search_numbered_only=1
+let g:indexed_search_shortmess=1
+
+" YouCompleteMe
+let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+let g:ycm_autoclose_preview_window_after_insertion=1
+
+" vim-angular
+let g:angular_filename_convention='titlecased'
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger='<Tab>'
+let g:UltiSnipsJumpForwardTrigger='<Tab>'
+let g:UltiSnipsJumpBackwardTrigger='<S-Tab>'
+
+" javascript-libraries-syntax
+let g:used_javascript_libs = 'underscore,backbone,angularjs,angularui,angularuirouter,requirejs,jasmine'
+" /Plugin Settings
 
 " autocommands
 au FileType html setlocal shiftwidth=2 tabstop=2 expandtab
@@ -111,11 +151,6 @@ if executable('ag')
     " Use ag in CtrlP for listing files. Add an .agignore file to hide
     " unwanted search results.
     let g:ctrlp_user_command = 'ag %s -l -f --nocolor --hidden -g ""'
-endif
-
-" Use <leader>l to clear the highlighting of :set hlsearch.
-if maparg('<leader>l', 'n') ==# ''
-    nnoremap <silent> <leader>l :nohlsearch<CR><leader>l
 endif
 
 function! Preserve(command)
